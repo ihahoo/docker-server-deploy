@@ -1,0 +1,21 @@
+version: '2'
+services:
+  registry:
+    image: registry:2.5.1
+    container_name: registry
+    restart: always
+    ports:
+      - 5000:5000
+    volumes:
+      - /srv/app/registry/data:/var/lib/registry
+    environment:
+      - VIRTUAL_HOST=registry.yourdomain.com
+      - HTTPS_METHOD=nohttp
+      - LETSENCRYPT_HOST=registry.yourdomain.com
+      - LETSENCRYPT_EMAIL=yourmail@somedomain.com
+    networks:
+      - nginx-proxy
+networks:
+  nginx-proxy:
+    external:
+      name: nginx-proxy

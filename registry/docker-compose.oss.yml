@@ -1,0 +1,26 @@
+version: '2'
+services:
+  registry:
+    image: registry:2.5.1
+    container_name: registry
+    restart: always
+    ports:
+      - 5000:5000
+    environment:
+      - REGISTRY_STORAGE=oss
+      - REGISTRY_STORAGE_OSS_ACCESSKEYID=accesskeyid
+      - REGISTRY_STORAGE_OSS_ACCESSKEYSECRET=accesskeysecret
+      - REGISTRY_STORAGE_OSS_REGION=oss-cn-shanghai
+      - REGISTRY_STORAGE_OSS_BUCKET=bucket
+      - REGISTRY_STORAGE_OSS_INTERNAL=true
+      - REGISTRY_STORAGE_OSS_SECURE=false
+      - VIRTUAL_HOST=registry.yourdomain.com
+      - HTTPS_METHOD=nohttp
+      - LETSENCRYPT_HOST=registry.yourdomain.com
+      - LETSENCRYPT_EMAIL=mail@emaildomain.com
+    networks:
+      - nginx-proxy
+networks:
+  nginx-proxy:
+    external:
+      name: nginx-proxy

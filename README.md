@@ -13,3 +13,10 @@
 - 其它容器的docker-compose.yml的配置参考
 
 [详情请点这里查看](https://github.com/ihahoo/docker-server-deploy/tree/master/nginx-dockergen-web)
+
+## [私有镜像仓库registry](https://github.com/ihahoo/docker-server-deploy/tree/master/registry)
+- nginx + docker-gen + letsencrypt 下部署registry
+- 可将仓库存储在本地
+- 可将仓库存储在阿里云oss中
+
+[详情请点这里查看](https://github.com/ihahoo/docker-server-deploy/tree/master/registry)

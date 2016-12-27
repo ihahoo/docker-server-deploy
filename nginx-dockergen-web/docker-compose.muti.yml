@@ -1,0 +1,30 @@
+version: '2'
+services:
+  web:
+    image: hahoo/node-hello:latest
+    command: npm start
+    restart: always
+    environment:
+      - VIRTUAL_HOST=www.yourdomain.com
+      - LETSENCRYPT_HOST=www.yourdomain.com
+      - LETSENCRYPT_EMAIL=mail@emaildomain.com
+    depends_on:
+      - db
+      - redis
+    networks:
+      - default
+      - nginx-proxy
+  db:
+    image: postgres:9.6.1-alpine
+    restart: always
+    networks:
+      - default
+  redis:
+    image: redis:3.2.6-alpine
+    restart: always
+    networks:
+      - default
+networks:
+  nginx-proxy:
+    external:
+      name: nginx-proxy

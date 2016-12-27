@@ -32,6 +32,8 @@ $ docker ps
 成功的话可以看到有3个运行的容器，名称是：`nginx`, `nginx-gen`, `nginx-letsencrypt`。如果遇到错误，或没有正常运行，检查80和443端口是否被服务器其它服务占用了。
 
 7.可以配置其它服务了
+
+[具体docker-compose.yml配置请参考这里](https://github.com/ihahoo/docker-server-deploy/tree/master/nginx-dockergen-web)
 ```
 VIRTUAL_HOST=abc.yourdomain.com
 LETSENCRYPT_HOST=abc.yourdomain.com

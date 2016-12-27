@@ -1,7 +1,7 @@
 version: '2'
 services:
   registry:
-    image: registry:2.5.1
+    image: registry
     container_name: registry
     restart: always
     ports:

@@ -27,7 +27,7 @@ services:
       - nginx
     command: -notify-sighup nginx -watch -wait 5s:30s /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
   nginx-letsencrypt:
-    image: alastaircoote/docker-letsencrypt-nginx-proxy-companion
+    image: jrcs/letsencrypt-nginx-proxy-companion
     container_name: nginx-letsencrypt
     restart: always
     volumes_from:
